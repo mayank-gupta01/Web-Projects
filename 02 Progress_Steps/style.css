@@ -1,0 +1,98 @@
+/* import a font family to use in our css file */
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+/* we use :root for declaring some variable to use, because it easy to change color */
+:root{
+    --line-border-fill: cyan;
+    --line-border-empty: #e0e0e0;
+}
+
+body{
+    background-color: aliceblue; 
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    text-align: center;
+}
+
+.progress-container{
+    display: flex;
+    /* by "space-between" the space occur between numbers */
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 40px;
+    max-width: 100%;
+    /* width of progress container */
+    width: 350px;
+}
+
+.progress-container::before{
+    content: '';
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top:50%;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    transform: translateY(-50%);
+    transition: 0.4s ease;
+    z-index: -1;
+}
+
+.progress{
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top:50%;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    transform: translateY(-50%);
+    transition: 0.4s ease;
+    z-index: -1;
+}
+
+.circle{
+    background-color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: 3px solid var(--line-border-empty);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s ease;
+}
+
+.circle.active{
+    border: 3px solid var(--line-border-fill);
+}
+
+.btn{
+    background-color: var(--line-border-fill);
+    color: rgb(31, 30, 30);
+    border: 0;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn:active{
+    transform: scale(0.98);
+}
+
+.btn:focus{
+    outline:0;
+}
+
+.btn:disabled{
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}
